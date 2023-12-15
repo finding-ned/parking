@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parking Vehicle Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle type refno</th>
+      <th>Vehicle type description</th>
+      <th>Vehicle type amount</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parking_vehicle_types.each do |parking_vehicle_type| %>
+      <tr>
+        <td><%= parking_vehicle_type.vehicle_type_refno %></td>
+        <td><%= parking_vehicle_type.vehicle_type_description %></td>
+        <td><%= parking_vehicle_type.vehicle_type_amount %></td>
+        <td><%= parking_vehicle_type.isactive %></td>
+        <td><%= link_to 'Show', parking_vehicle_type %></td>
+        <td><%= link_to 'Edit', edit_parking_vehicle_type_path(parking_vehicle_type) %></td>
+        <td><%= link_to 'Destroy', parking_vehicle_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parking Vehicle Type', new_parking_vehicle_type_path %>

@@ -1,0 +1,64 @@
+<br>
+<br>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-4" >
+      
+    </div>
+    <div class="col-sm-4" >
+
+      <h2>Add Parking Transanction</h2>
+      <br>
+
+      <%= form_with(model: parking_transaction, local: true) do |form| %>
+        <% if parking_transaction.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(parking_transaction.errors.count, "error") %> prohibited this parking_transaction from being saved:</h2>
+
+            <ul>
+            <% parking_transaction.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <% ViewParkingLotDtlHdr%>  
+
+        <% ViewParkingLotDtlHdr.where(lot_status_refno: 1, entrance_refno: 1).order('distance, lot_hdr_refno').limit(1).exists?%>
+
+        <span><strong>Entrance #: </strong><%= @entrance_refno_new %></span>
+        <br>
+        <br>
+        <div class="field">
+          <%= form.label :transaction_vehicle_type, 'Select Vehicle Type: ' %>
+          <%= form.collection_select :transaction_vehicle_type, ParkingVehicleType.where(isactive: 1),:vehicle_type_refno, :vehicle_type_description, min: 1 %>
+        </div>
+
+        <div class="field">
+          <%= form.label :plate_number, 'Enter Plate Number: ' %>
+          <%= form.text_field :plate_number %>
+        </div>
+
+
+
+        <%= form.hidden_field :lot_hdr_refno, value: 1 %>
+        <%= form.hidden_field :entrance_refno, value: @entrance_refno_new %>
+        <%= form.hidden_field :isactive, value: true %>
+
+        <div class="actions">
+          <%= form.submit 'Save', class:'btn btn-primary'%>
+        </div>
+      <% end %>
+
+      
+    </div>
+    <div class="col-sm-4" >
+      
+    </div>
+  </div>
+</div>
+

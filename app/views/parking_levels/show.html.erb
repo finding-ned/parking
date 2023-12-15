@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Level refno:</strong>
+  <%= @parking_level.level_refno %>
+</p>
+
+<p>
+  <strong>Level code:</strong>
+  <%= @parking_level.level_code %>
+</p>
+
+<p>
+  <strong>Level description:</strong>
+  <%= @parking_level.level_description %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_level.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_level_path(@parking_level) %> |
+<%= link_to 'Back', parking_levels_path %>

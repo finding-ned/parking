@@ -1,0 +1,84 @@
+
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-4" >
+    </div>
+
+    <div class="col-sm-4" >
+
+      <p id="notice"><%= notice %></p>
+      <b>Today is<b>
+      <div id="clockbox"></div>
+
+
+      <hr>
+      <br>
+
+      <p>
+        <strong>Transaction Ref#:</strong>
+      </p>
+      <p><strong><%= @parking_transaction.transaction_refno %></strong></p>
+
+      <p>
+        <strong>Transaction vehicle type:</strong>
+        <% @parking_transaction.transaction_vehicle_type %>
+        <%= ParkingVehicleType.where(vehicle_type_refno: @parking_transaction.transaction_vehicle_type ).pluck(:vehicle_type_description ).to_sentence %>
+      </p>
+
+      <p>
+        <strong>Park Time-in:</strong>
+        <%= @parking_transaction.transaction_starttime %>
+      </p>
+
+      <p>
+        <strong>Park Time-out:</strong>
+        <%= @parking_transaction.transaction_endtime %>
+      </p>
+
+
+      <p>
+        <strong>Lot#: </strong>
+        <%= @parking_transaction.lot_hdr_refno %>
+      </p>
+
+
+
+      <% link_to 'Edit', edit_parking_transaction_path(@parking_transaction) %> 
+      <%= link_to 'Back', '/parking_spaces' %> | <%= link_to 'Timeout', "/timeout_trans?transaction_id=#{@parking_transaction.id}"%> <% @parking_transaction.id %>
+
+
+    </div>
+    <div class="col-sm-4" >
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear(),nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+     if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nyear<1000) nyear+=1900;
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+}
+
+window.onload=function(){
+GetClock();
+setInterval(GetClock,1000);
+}
+</script>

@@ -1,0 +1,2 @@
+class ParkingVehicleType < ApplicationRecord
+end

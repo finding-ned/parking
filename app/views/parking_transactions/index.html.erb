@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parking Transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Transaction refno</th>
+      <th>Transaction vehicle type</th>
+      <th>Transaction starttime</th>
+      <th>Transaction endtime</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parking_transactions.each do |parking_transaction| %>
+      <tr>
+        <td><%= parking_transaction.transaction_refno %></td>
+        <td><%= parking_transaction.transaction_vehicle_type %></td>
+        <td><%= parking_transaction.transaction_starttime %></td>
+        <td><%= parking_transaction.transaction_endtime %></td>
+        <td><%= parking_transaction.isactive %></td>
+        <td><%= link_to 'Show', parking_transaction %></td>
+        <td><%= link_to 'Edit', edit_parking_transaction_path(parking_transaction) %></td>
+        <td><%= link_to 'Destroy', parking_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parking Transaction', new_parking_transaction_path %>

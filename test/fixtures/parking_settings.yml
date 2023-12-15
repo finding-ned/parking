@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  setting_refno: 1
+  setting_code: MyString
+  setting_description: MyString
+  setting_value: MyString
+  isactive: false
+
+two:
+  setting_refno: 1
+  setting_code: MyString
+  setting_description: MyString
+  setting_value: MyString
+  isactive: false

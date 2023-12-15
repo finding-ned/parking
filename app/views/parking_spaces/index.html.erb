@@ -1,0 +1,65 @@
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Parking Spaces</h3>
+    </div>
+    <div class="col-sm-6" align="right" >
+      <%= link_to 'New Parking Space', new_parking_space_path %>
+    </div>
+  </div>
+
+      <p id="notice"><%= notice %></p>
+
+      <br>
+      <br>
+
+          <% @parking_spaces.each do |parking_space| %>
+              <% get_parking_block = ParkingBlock.where(space_refno: parking_space.space_refno ) %>
+              <table  style="width:100%">
+                <tbody>
+                <% get_parking_block.each do |parking_block| %>
+
+                    <td>
+                      <h3>Block#: <%= parking_block.id %></h3> 
+                      <% get_parkin_lot_hdr =  ParkingLotHdr.where(block_refno: parking_block.block_refno )%>
+
+                        <% get_parkin_lot_hdr.each do |parking_lot| %>
+                          <hr>
+                          Lot: <%= parking_lot.id %>
+                        
+                          <% get_v_park_details = ViewParkingLotStatusTransaction.where(lot_hdr_refno: parking_lot.lot_hdr_refno).to_a %>
+                          <% get_v_park_details.each do |get_v_park_details| %>
+
+                            
+                            <% if get_v_park_details.lot_status_refno == 1 %>
+                              <span style="color: green;"><%= get_v_park_details.lot_status_description %> / <%= get_v_park_details.vehicle_code %></span>
+
+                            <% else %>
+                              <%= get_v_park_details.id %>
+                              <span style="color: red;"><%= get_v_park_details.lot_status_description %> / <%= get_v_park_details.vehicle_code %> |<%= link_to "Time-out", "/parking_transactions/#{get_v_park_details.park_trans_id}" , method: 'get'%> </span>
+
+
+                            <% end %>
+
+                          <% end %>
+
+                          <hr>
+                        <% end %>
+
+                    </td>
+                  
+                  
+                <% end %>
+                </tbody> 
+              </table>  
+                <br>
+          <% end %>
+    </div>
+  </div>
+</div>
+

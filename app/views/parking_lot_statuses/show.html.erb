@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lot status refno:</strong>
+  <%= @parking_lot_status.lot_status_refno %>
+</p>
+
+<p>
+  <strong>Lot status code:</strong>
+  <%= @parking_lot_status.lot_status_code %>
+</p>
+
+<p>
+  <strong>Lot status description:</strong>
+  <%= @parking_lot_status.lot_status_description %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_lot_status.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_lot_status_path(@parking_lot_status) %> |
+<%= link_to 'Back', parking_lot_statuses_path %>

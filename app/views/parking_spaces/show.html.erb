@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Space refno:</strong>
+  <%= @parking_space.space_refno %>
+</p>
+
+<p>
+  <strong>Space description:</strong>
+  <%= @parking_space.space_description %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_space.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_space_path(@parking_space) %> |
+<%= link_to 'Back', parking_spaces_path %>

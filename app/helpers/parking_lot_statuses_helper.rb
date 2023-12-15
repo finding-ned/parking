@@ -1,0 +1,2 @@
+module ParkingLotStatusesHelper
+end

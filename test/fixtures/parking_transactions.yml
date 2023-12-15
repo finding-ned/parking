@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_refno: 1
+  transaction_vehicle_type: 1
+  transaction_starttime: 2023-12-09 08:59:33
+  transaction_endtime: 2023-12-09 08:59:33
+  isactive: false
+
+two:
+  transaction_refno: 1
+  transaction_vehicle_type: 1
+  transaction_starttime: 2023-12-09 08:59:33
+  transaction_endtime: 2023-12-09 08:59:33
+  isactive: false

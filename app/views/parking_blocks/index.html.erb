@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parking Blocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Block refno</th>
+      <th>Block code</th>
+      <th>Block description</th>
+      <th>Space refno</th>
+      <th>Level refno</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parking_blocks.each do |parking_block| %>
+      <tr>
+        <td><%= parking_block.block_refno %></td>
+        <td><%= parking_block.block_code %></td>
+        <td><%= parking_block.block_description %></td>
+        <td><%= parking_block.space_refno %></td>
+        <td><%= parking_block.level_refno %></td>
+        <td><%= parking_block.isactive %></td>
+        <td><%= link_to 'Show', parking_block %></td>
+        <td><%= link_to 'Edit', edit_parking_block_path(parking_block) %></td>
+        <td><%= link_to 'Destroy', parking_block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parking Block', new_parking_block_path %>

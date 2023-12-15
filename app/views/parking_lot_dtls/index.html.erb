@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+</head>
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-12" style="light-grey">
+
+        <p id="notice"><%= notice %></p>
+
+        <% @hash_url %> 
+
+        
+
+        
+
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Entry - Lot Details </h2> 
+        </div>
+
+        <div class="col-sm-6" align="right">
+          <%= link_to 'Add Entry-Lot Dtl', "/parking_lot_dtls/new?lot_hdr_refno_new=#{@lot_hdr_refno}", class: 'btn btn-success btn-block' %>
+        </div>
+      </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-condensed" id="entry_lot_details" >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Entrance refno</th>
+                <th>Distance</th>
+                <th>Isactive</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @parking_lot_dtls.each do |parking_lot_dtl| %>
+                <tr>
+                  <td><%= parking_lot_dtl.lot_detail_refno %></td>
+                  <td><%= parking_lot_dtl.lot_dtl_description %></td>
+                  <td><%= parking_lot_dtl.entrance_refno %></td>
+                  <td><%= parking_lot_dtl.distance %></td>
+                  <td><%= parking_lot_dtl.isactive %></td>
+                  <td><%= link_to 'Show', parking_lot_dtl %></td>
+                  <td><%= link_to 'Edit', edit_parking_lot_dtl_path(parking_lot_dtl) %></td>
+                  <td><%= link_to 'Remove', parking_lot_dtl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <br>
+
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+        <script>
+          $(function(){
+            $("#entry_lot_details").dataTable();
+          })
+        </script>  
+
+              
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+

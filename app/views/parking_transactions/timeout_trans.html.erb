@@ -1,0 +1,63 @@
+
+<%  @get_trans_details = ParkingTransaction.where(id: @transaction_id) %>
+<div class="container">
+  <div class="row"> 
+    <div class="col-sm-4">
+   	</div>
+   	<div class="col-sm-4">
+      <b><%= @message %></b>
+      <br> 
+      <b><%= @message2 %></b>
+      <br>
+      <b><%= @message3 %></b>
+      <hr>
+      <b>Reference#: </b><%= @transaction_id %>
+      <br>
+      <strong>Your Total Hour(s): </strong> <%= @total_hrs_rounded %>
+      <br>
+      <% @get_vhcle_details.each do |get_vhcle_details|  %>
+
+        <% get_vhcle_details.vehicle_type_amount %>
+
+      <% end %>
+
+      <b>Total amount to be paid: </b>
+      <%= number_with_precision( @get_total_amount , :precision => 2, :delimiter => ',')%>
+      <br>
+      <% @get_trans_details.each do |get_trans_details| %>
+
+      <b>Start Time: </b><%= get_trans_details.transaction_starttime.strftime("%F %H:%M:%S") %>
+      <br>
+      <b>Vehicle Type: </b><%= ParkingVehicleType.where(vehicle_type_refno: get_trans_details.transaction_vehicle_type).pluck(:vehicle_type_description).to_sentence %>
+      <br>
+      <b>Plate Number: </b><%=get_trans_details.plate_number %>
+      <br>
+      <b>Parking Lot Ref#: </b><%=get_trans_details.lot_hdr_refno %>
+
+      <% end %>
+
+      <br>
+      <%= @get_excess_hrs_on_less_24 %>
+      <hr>
+      <b>Total excess hour(s) is: </b> <%= @get_exceed_hrs1 %>
+      <br>
+      <b>Total hour(s) less 3 hrs.: </b><%= @get_excess_hrs_on_less_24_1 %>
+      <br> 
+      <b>Total amount of hours less 3 hours: </b> <%= @get_excess_of_24 %>
+      <br>
+      <b>Total amount of 3 hours remaining:  </b> <%= @get_remaining_3 %>
+      <br>
+      <hr>
+      <%= link_to 'Pay Parking', "/timeout?transaction_id=#{@transaction_id}&totalamt=#{@get_total_amount}", method:'get' %> | <%= link_to 'Back'%>
+      
+
+   	</div>
+   	<div class="col-sm-4">
+   	</div>
+  </div>
+</div>
+<br>
+
+
+
+

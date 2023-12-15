@@ -1,0 +1,2 @@
+class ParkingLevel < ApplicationRecord
+end

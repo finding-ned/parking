@@ -1,0 +1,100 @@
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-5">
+      <br>
+      <br>
+      <h1 align="left">Parking Lot Details</h1>
+      <br>
+      <br>
+      <%= form_with(model: parking_lot_hdr, local: true) do |form| %>
+        <% if parking_lot_hdr.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(parking_lot_hdr.errors.count, "error") %> prohibited this parking_lot_hdr from being saved:</h2>
+
+            <ul>
+            <% parking_lot_hdr.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :lot_hdr_refno, 'Reference #: ' %>
+
+        </div>
+
+        <div class="col-sm-6">
+          <%= form.number_field :lot_hdr_refno, disabled: true %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :lot_hdr_code, 'Code' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.text_field :lot_hdr_code, disabled: true %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :lot_hdr_description, 'Description' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.text_field :lot_hdr_description , disabled: true %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :level_refno, 'Level' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.collection_select :level_refno, ParkingLevel.where(isactive: 1),:level_refno, :level_description, disabled: true %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :level_refno, 'Vehicle Type' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.collection_select :vehicle_type_refno, ParkingVehicleType.where(isactive: 1),:vehicle_type_refno, :vehicle_type_description , disabled: true%>
+        </div>
+      </div>
+
+        <%= form.hidden_field :isactive, value: true %>
+
+      <br>
+      <br>
+      
+	  	<div class="d-grid gap-2 d--block">
+		  <%= link_to 'Back', '/parking_lot_hdrs', method: 'get', class: 'btn btn-secondary ' %>
+		</div>
+
+    </div>
+
+    <div class="col-sm-7" style="border-left-style: dotted; border-color: #555555;">
+
+        <% @parking_lot_hdr.lot_hdr_refno %>
+
+    	<iframe src="/parking_lot_dtls?lot_hdr_refno=<%= @parking_lot_hdr.lot_hdr_refno %>" style="border:none;" title="IframeExpenseDetails" height="530px" width="100%"></iframe>
+
+      
+    </div>
+  </div>
+</div>
+
+<% end %>

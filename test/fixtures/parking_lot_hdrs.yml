@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lot_hdr_refno: 1
+  lot_hdr_code: MyString
+  lot_hdr_description: MyString
+  isactive: false
+
+two:
+  lot_hdr_refno: 1
+  lot_hdr_code: MyString
+  lot_hdr_description: MyString
+  isactive: false

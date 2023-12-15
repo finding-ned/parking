@@ -1,0 +1,47 @@
+<%= form_with(model: parking_block, local: true) do |form| %>
+  <% if parking_block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parking_block.errors.count, "error") %> prohibited this parking_block from being saved:</h2>
+
+      <ul>
+      <% parking_block.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :block_refno %>
+    <%= form.number_field :block_refno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :block_code %>
+    <%= form.text_field :block_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :block_description %>
+    <%= form.text_field :block_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :space_refno %>
+    <%= form.number_field :space_refno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level_refno %>
+    <%= form.number_field :level_refno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isactive %>
+    <%= form.check_box :isactive %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

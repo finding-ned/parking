@@ -1,0 +1,37 @@
+
+
+<div class="container">
+  <div class="row"> 
+    <div class="col-sm-4">
+   	</div>
+   	<div class="col-sm-4">
+      <br>
+     <b>Total Amount to be paid:</b>
+     <br>
+
+      <%= @hash_url_timeout[:totalamt]%>  <% @hash_url_timeout %>
+      <br>
+      <hr>
+      <%= form_tag("/timeout_end", method:'post') do %>
+
+        <%= number_field_tag :amount_given %>
+        <%= hidden_field_tag :trans_id , @hash_url_timeout[:transaction_id] %>
+        <%= hidden_field_tag :amount_paid , @hash_url_timeout[:totalamt] %>
+
+        <br>
+
+        <%= submit_tag "Pay Now" %>
+      <% end %>
+
+      
+
+   	</div>
+   	<div class="col-sm-4">11
+   	</div>
+  </div>
+</div>
+<br>
+
+
+
+

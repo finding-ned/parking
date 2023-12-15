@@ -1,0 +1,37 @@
+<%= form_with(model: parking_level, local: true) do |form| %>
+  <% if parking_level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parking_level.errors.count, "error") %> prohibited this parking_level from being saved:</h2>
+
+      <ul>
+      <% parking_level.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :level_refno %>
+    <%= form.number_field :level_refno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level_code %>
+    <%= form.text_field :level_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level_description %>
+    <%= form.text_field :level_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isactive %>
+    <%= form.check_box :isactive %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

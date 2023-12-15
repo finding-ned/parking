@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Setting refno:</strong>
+  <%= @parking_setting.setting_refno %>
+</p>
+
+<p>
+  <strong>Setting code:</strong>
+  <%= @parking_setting.setting_code %>
+</p>
+
+<p>
+  <strong>Setting description:</strong>
+  <%= @parking_setting.setting_description %>
+</p>
+
+<p>
+  <strong>Setting value:</strong>
+  <%= @parking_setting.setting_value %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_setting.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_setting_path(@parking_setting) %> |
+<%= link_to 'Back', parking_settings_path %>

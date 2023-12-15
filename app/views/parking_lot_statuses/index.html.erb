@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parking Lot Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lot status refno</th>
+      <th>Lot status code</th>
+      <th>Lot status description</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parking_lot_statuses.each do |parking_lot_status| %>
+      <tr>
+        <td><%= parking_lot_status.lot_status_refno %></td>
+        <td><%= parking_lot_status.lot_status_code %></td>
+        <td><%= parking_lot_status.lot_status_description %></td>
+        <td><%= parking_lot_status.isactive %></td>
+        <td><%= link_to 'Show', parking_lot_status %></td>
+        <td><%= link_to 'Edit', edit_parking_lot_status_path(parking_lot_status) %></td>
+        <td><%= link_to 'Destroy', parking_lot_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parking Lot Status', new_parking_lot_status_path %>

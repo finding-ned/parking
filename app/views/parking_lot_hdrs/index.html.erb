@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-8">
+            
+      <p id="notice"><%= notice %></p>
+
+      
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Parking Lot</h2>
+        </div>
+        <div class="col-sm-6" align="left">
+          <%= button_to 'Add Parking Lot', new_parking_lot_hdr_path, method: 'get', class:'btn btn-success btn-block' %>
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-condensed" id="entry_lot_details" >
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Code</th>
+                  <th>Description</th>
+                  <th>Vehicle Type</th>
+                  <th>Is Active?</th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @parking_lot_hdrs.each do |parking_lot_hdr| %>
+                  <tr>
+                    <td><%= parking_lot_hdr.lot_hdr_refno %></td>
+                    <td><%= parking_lot_hdr.lot_hdr_code %></td>
+                    <td><%= parking_lot_hdr.lot_hdr_description %></td>
+                    
+                    <% if parking_lot_hdr.vehicle_type_refno == '' %>
+                      <td> - </td>
+                    <% else %>
+                      <td align="left">
+                        <%parking_lot_hdr.vehicle_type_refno %>
+                        <%= ParkingVehicleType.where(vehicle_type_refno: parking_lot_hdr.vehicle_type_refno ).pluck(:vehicle_type_description).to_sentence %>
+                      </td>
+                    <% end  %>
+                    <td><%= parking_lot_hdr.isactive %></td>
+                    
+                    <td><%= link_to 'Edit', edit_parking_lot_hdr_path(parking_lot_hdr) %></td>
+                    <td><%= link_to 'Remove', parking_lot_hdr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+    </div>
+    <div class="col-sm-2">
+      
+    </div>
+  </div>
+</div>
+

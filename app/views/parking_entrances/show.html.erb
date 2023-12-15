@@ -1,0 +1,28 @@
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 ">
+      
+    </div>
+    <div class="col-sm-6 ">
+
+
+      <p id="notice"><%= notice %></p>
+
+      <h1>Your are on Entrance: <%= @parking_entrance.entrance_refno %> </h1>
+
+      <p>
+
+        
+      <%= link_to 'Proceed to Park', "/parking_transactions/new?entrance_refno=#{@parking_entrance.entrance_refno}", method:'get' %> 
+      <% link_to 'Proceed', "/entrance_transaction?entrance_refno=#{@parking_entrance.entrance_refno}", method:'post' %> |
+      <%= link_to 'Back', parking_entrances_path %>
+
+      
+    </div>
+    <div class="col-sm-3 ">
+      
+    </div>
+  </div>
+</div>

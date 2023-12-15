@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_type_refno: 1
+  vehicle_type_description: MyString
+  vehicle_type_amount: 1
+  isactive: false
+
+two:
+  vehicle_type_refno: 1
+  vehicle_type_description: MyString
+  vehicle_type_amount: 1
+  isactive: false

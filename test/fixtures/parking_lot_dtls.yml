@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lot_detail_refno: 1
+  lot_hdr_refno: 1
+  lot_dtl_description: MyString
+  entrance_refno: 1
+  distance: 1
+  isactive: false
+
+two:
+  lot_detail_refno: 1
+  lot_hdr_refno: 1
+  lot_dtl_description: MyString
+  entrance_refno: 1
+  distance: 1
+  isactive: false

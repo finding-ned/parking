@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Block refno:</strong>
+  <%= @parking_block.block_refno %>
+</p>
+
+<p>
+  <strong>Block code:</strong>
+  <%= @parking_block.block_code %>
+</p>
+
+<p>
+  <strong>Block description:</strong>
+  <%= @parking_block.block_description %>
+</p>
+
+<p>
+  <strong>Space refno:</strong>
+  <%= @parking_block.space_refno %>
+</p>
+
+<p>
+  <strong>Level refno:</strong>
+  <%= @parking_block.level_refno %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_block.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_block_path(@parking_block) %> |
+<%= link_to 'Back', parking_blocks_path %>

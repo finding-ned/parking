@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parking Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting refno</th>
+      <th>Setting code</th>
+      <th>Setting description</th>
+      <th>Setting value</th>
+      <th>Isactive</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parking_settings.each do |parking_setting| %>
+      <tr>
+        <td><%= parking_setting.setting_refno %></td>
+        <td><%= parking_setting.setting_code %></td>
+        <td><%= parking_setting.setting_description %></td>
+        <td><%= parking_setting.setting_value %></td>
+        <td><%= parking_setting.isactive %></td>
+        <td><%= link_to 'Show', parking_setting %></td>
+        <td><%= link_to 'Edit', edit_parking_setting_path(parking_setting) %></td>
+        <td><%= link_to 'Destroy', parking_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parking Setting', new_parking_setting_path %>

@@ -1,0 +1,2 @@
+class ParkingLotHdr < ApplicationRecord
+end

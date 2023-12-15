@@ -1,0 +1,96 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4">
+      <br>
+      <br>
+      <h2 align="center">Add Parking Lot </h2>
+      <br>
+      <br>
+      <%= form_with(model: parking_lot_hdr, local: true, ) do |form| %>
+        <% if parking_lot_hdr.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(parking_lot_hdr.errors.count, "error") %> prohibited this parking_lot_hdr from being saved:</h2>
+
+            <ul>
+            <% parking_lot_hdr.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+
+      <table width="100%">
+
+         <tr>
+          <td width="50%"><%= form.label :lot_hdr_code, 'Code: ' %></td>
+         
+          <td width="50%" align="right"><b><small><%= form.text_field :lot_hdr_code %></small></b></td>
+        </tr>
+
+
+         <tr>
+          <td width="50%"><%= form.label :lot_hdr_description, 'Description' %></td>
+         
+          <td width="50%" align="right"><b><%= form.text_field :lot_hdr_description %></small></b></td>
+        </tr>
+
+  
+      </table>
+
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          
+        </div>
+        
+        <div class="col-sm-6">
+          
+        </div>
+      </div>
+      
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :level_refno, 'Level' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.collection_select :level_refno, ParkingLevel.where(isactive: 1),:level_refno, :level_description, {class: "dropdown-menu"} %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form.label :level_refno, 'Vehicle Type' %>
+        </div>
+        
+        <div class="col-sm-6">
+          <%= form.collection_select :vehicle_type_refno, ParkingVehicleType.where(isactive: 1),:vehicle_type_refno, :vehicle_type_description, { class: 'form-control' } %>
+        </div>
+      </div>
+
+        <%= form.hidden_field :isactive, value: true %>
+
+      <br>
+      <br>
+        <div class="actions">
+          <%= form.submit 'Save' ,class:'btn btn-success btn-block'   %>
+        </div>
+      <% end %>
+      
+      <%= link_to 'Back', parking_lot_hdrs_path %>
+
+    </div>
+    <div class="col-sm-4">
+      
+    </div>
+  </div>
+</div>

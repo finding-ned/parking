@@ -1,0 +1,2 @@
+class ParkingTransaction < ApplicationRecord
+end

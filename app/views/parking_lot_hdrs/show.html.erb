@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lot hdr refno:</strong>
+  <%= @parking_lot_hdr.lot_hdr_refno %>
+</p>
+
+<p>
+  <strong>Lot hdr code:</strong>
+  <%= @parking_lot_hdr.lot_hdr_code %>
+</p>
+
+<p>
+  <strong>Lot hdr description:</strong>
+  <%= @parking_lot_hdr.lot_hdr_description %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @parking_lot_hdr.isactive %>
+</p>
+
+<%= link_to 'Edit', edit_parking_lot_hdr_path(@parking_lot_hdr) %> |
+<%= link_to 'Back', parking_lot_hdrs_path %>
